@@ -1,0 +1,4 @@
+import { Link } from 'react-router';
+import { ArrowUpRight } from 'lucide-react';
+import { pages } from '@/data/company';
+export function InfoContent({page}:{page:typeof pages.about}){return <main><section className="page-heading"><p className="eyebrow">{page.eyebrow}</p><h1>{page.title}</h1><p>{page.intro}</p></section><section className="section info-grid"><img className="info-image" src={page.image} width={1344} height={768} alt={page.image===pages.logistics.image?'Shipping containers and port cranes':'Industrial engineering workshop'} /><div>{page.items.map(([title,text],i)=><article className="info-row" key={title}><span className="eyebrow">0{i+1}</span><h2>{title}</h2><p>{text}</p></article>)}<Link className="button" to="/contact">Discuss your requirements <ArrowUpRight size={18}/></Link></div></section></main>}
